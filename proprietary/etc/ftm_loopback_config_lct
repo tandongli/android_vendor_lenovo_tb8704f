@@ -1,0 +1,647 @@
+tc 1
+#Headset-mic to Speaker Dual-Channel AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:5
+DEC1 MUX:ADC2
+MICBIAS CAPLESS Switch:1
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+Ext Spk Switch:On
+RX1 Digital Volume:77
+RX2 Digital Volume:77
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC2 Volume:4
+DEC1 MUX:ZERO
+MICBIAS CAPLESS Switch:0
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+Ext Spk Switch:Off
+RX1 Digital Volume:84
+RX2 Digital Volume:84
+
+
+
+
+tc 2
+#Headset-mic to Receiver AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:5
+DEC1 MUX:ADC2
+MICBIAS CAPLESS Switch:1
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+Receiver PA Open:ON
+RX1 Digital Volume:77
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC2 Volume:4
+DEC1 MUX:ZERO
+MICBIAS CAPLESS Switch:0
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO
+Receiver PA Open:OFF
+RX1 Digital Volume:84
+
+tc 3
+#Handset-mic to Headset Dual-Channel AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC1 Volume:5
+DEC1 MUX:ADC1
+IIR1 INP1 MUX:DEC1
+
+MI2S_RX Channels:Two
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC1 Volume:4	
+DEC1 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+MI2S_RX Channels:One
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+
+tc 4
+#Sendary-handset-mic to Headset Dual-Channel AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC3 Volume:5
+DEC1 MUX:ADC2
+ADC2 MUX:INP3
+
+MI2S_RX Channels:Two
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC3 Volume:4
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+
+MI2S_RX Channels:One
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+
+tc 5
+#Handset-mic to Speaker Channel-L AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC1 Volume:5	
+DEC1 MUX:ADC1
+IIR1 INP1 MUX:DEC1
+
+Speaker PA Open:ON
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHR:Switch
+
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC1 Volume:4	
+DEC1 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+Speaker PA Open:OFF
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO
+
+
+
+tc 6
+#Handset-mic to Speaker Channel-R AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC1 Volume:5	
+DEC1 MUX:ADC1
+IIR1 INP1 MUX:DEC1
+
+Speaker PA Open:ON
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHR:Switch
+
+
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC1 Volume:4	
+DEC1 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+Speaker PA Open:OFF
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO
+
+
+
+tc 7
+#Handset-mic to Receiver AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC1 Volume:20
+DEC1 MUX:ADC1
+IIR1 INP1 MUX:DEC1
+
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+Receiver PA Open:ON
+RX1 Digital Volume:84
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+ADC1 Volume:4
+DEC1 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO
+Receiver PA Open:OFF
+RX1 Digital Volume:84
+
+tc 8
+#Handset-mic to Headphone Channel-L AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC1 Volume:5	
+DEC1 MUX:ADC1
+
+IIR1 INP1 MUX:DEC1
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC1 Volume:4	
+DEC1 MUX:ZERO
+
+IIR1 INP1 MUX:ZERO
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO	
+
+tc 9
+#Handset-mic to Headset Channel-R AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC1 Volume:5	
+DEC1 MUX:ADC1
+IIR1 INP1 MUX:DEC1
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC1 Volume:4	
+DEC1 MUX:ZERO
+
+IIR1 INP1 MUX:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO	
+
+
+tc 10
+#Sendary-handset-mic to Receiver AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC3 Volume:5
+DEC1 MUX:ADC2
+ADC2 MUX:INP3
+
+RX1 MIX1 INP1:RX1
+RDAC2 MUX:RX1
+RX1 Digital Volume:84
+EAR PA Gain:POS_6_DB
+EAR_S:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC3 Volume:4
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+RX1 Digital Volume:84
+EAR PA Gain:POS_1P5_DB
+EAR_S:ZERO
+
+tc 11
+#Handset-mic to Speaker AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC1 Volume:20
+DEC1 MUX:ADC1
+IIR1 INP1 MUX:DEC1
+
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+Ext Spk Switch:On
+RX1 Digital Volume:77
+RX2 Digital Volume:77
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC1 Volume:4
+DEC1 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+Ext Spk Switch:Off
+RX1 Digital Volume:84
+RX2 Digital Volume:84
+
+tc 12
+#Sendary-handset-mic to Speaker AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC3 Volume:5
+DEC1 MUX:ADC2
+ADC2 MUX:INP3
+
+Speaker PA Open:ON
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC3 Volume:4
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+
+Speaker PA Open:OFF
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO
+
+
+
+tc 13
+#Sendary-handset-mic to Headphone Channel-L AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC3 Volume:5
+DEC1 MUX:ADC2
+ADC2 MUX:INP3
+
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC3 Volume:4
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO
+
+tc 14
+#Sendary-handset-mic to Headset Channel-R AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC3 Volume:5
+DEC1 MUX:ADC2
+ADC2 MUX:INP3
+
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+ADC3 Volume:4
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO
+
+
+tc 15
+#Headset-mic to Headphone AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:5
+DEC1 MUX:ADC2
+MICBIAS CAPLESS Switch:1
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+MI2S_RX Channels:Two
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+ADC2 Volume:4
+DEC1 MUX:ZERO
+MICBIAS CAPLESS Switch:0
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+MI2S_RX Channels:One
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+
+tc 16
+#Headset-mic to Headphone Channel-L AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:5
+DEC1 MUX:ADC2
+MICBIAS CAPLESS Switch:1
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+RX1 MIX1 INP1:RX1
+HPHL:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+ADC2 Volume:4
+DEC1 MUX:ZERO
+MICBIAS CAPLESS Switch:0
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+HPHL:ZERO
+
+
+
+tc 17
+#Headset-mic to Headset Channel-R AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:5
+DEC1 MUX:ADC2
+MICBIAS CAPLESS Switch:1
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+RX2 MIX1 INP1:RX2
+RDAC2 MUX:RX2
+HPHR:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+ADC2 Volume:4
+DEC1 MUX:ZERO
+MICBIAS CAPLESS Switch:0
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO
+
+
+
+tc 18
+#Headset-mic to Speaker Channel-L AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:5
+DEC1 MUX:ADC2
+MICBIAS CAPLESS Switch:1
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+RX1 MIX1 INP1:RX1
+RX1 Digital Volume:77
+Ext Spk Switch:On
+HPHL:Switch
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC2 Volume:4
+DEC1 MUX:ZERO
+MICBIAS CAPLESS Switch:0
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX1 MIX1 INP1:ZERO
+RX1 Digital Volume:84
+Ext Spk Switch:Off
+HPHL:ZERO
+
+
+
+tc 19
+#Headset-mic to Speaker Channel-R AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+ADC2 Volume:5
+DEC1 MUX:ADC2
+MICBIAS CAPLESS Switch:1
+ADC2 MUX:INP2
+IIR1 INP1 MUX:DEC1
+
+RX2 MIX1 INP1:RX2
+Ext Spk Switch:On
+RDAC2 MUX:RX2
+RX2 Digital Volume:77
+HPHR:Switch
+
+
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+ADC2 Volume:4
+DEC1 MUX:ZERO
+MICBIAS CAPLESS Switch:0
+ADC2 MUX:ZERO
+IIR1 INP1 MUX:ZERO
+
+RX2 MIX1 INP1:ZERO
+Ext Spk Switch:Off
+RDAC2 MUX:ZERO
+RX2 Digital Volume:84
+HPHR::ZERO
+
+
+

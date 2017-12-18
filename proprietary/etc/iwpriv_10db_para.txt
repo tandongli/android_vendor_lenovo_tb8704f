@@ -1,0 +1,8 @@
+wlan0 ftm 1
+wlan0 tx 0
+wlan0 ena_chain 2
+wlan0 pwr_cntl_mode 2
+wlan0 set_channel 7
+wlan0 set_txrate MCS_SG_72_2_MBPS
+wlan0 set_txpower 10
+wlan0 tx 1
